@@ -10,14 +10,13 @@ public class WelcomeMenu {
            System.out.println("Enter your choice: ");
            Scanner scanner = new Scanner(System.in);
            int choice = scanner.nextInt();
+           LoginMenu loginMenu = new LoginMenu();
            switch (choice) {
                case 1:
-                   LoginMenu loginMenu = new LoginMenu();
-                   loginMenu.displayMenu();
+                   loginMenu.displayLogin();
                    break;
                case 2:
-                   RegisterMenu registerMenu = new RegisterMenu();
-                   registerMenu.displayMenu();
+                   LoginMenu.displayRegister();
                    break;
                case 3:
                    break;
