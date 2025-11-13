@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class WelcomeMenu {
     public void displayMenu() {
        while(true){
-           System.out.println("Welcome to Bus Booking System");
+           System.out.println("Welcome to BusMate");
            System.out.println("1. Login");
            System.out.println("2. Register");
            System.out.println("3. Exit");
@@ -16,9 +16,12 @@ public class WelcomeMenu {
                    loginMenu.displayLogin();
                    break;
                case 2:
-                   LoginMenu.displayRegister();
+                   loginMenu.displayRegister();
                    break;
                case 3:
+                   System.out.println("Thank you for using BusMate");
+                   System.exit(0);
+               default:
                    break;
            }
        }
