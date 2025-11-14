@@ -20,9 +20,11 @@ public class LoginMenu {
 
     public void displayLogin() {
         Scanner scanner = new Scanner(System.in);
-
-        String username = scanner.next("Enter username: ");
-        String password = scanner.next("Enter Password: ");
+        System.out.println("Login");
+        System.out.println("Enter username: ");
+        String username = scanner.next();
+        System.out.println("Enter password: ");
+        String password = scanner.next();
 
 //        User user = authService.authenticate(username, password);
 //
