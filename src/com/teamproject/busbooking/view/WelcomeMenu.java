@@ -1,18 +1,25 @@
 package com.teamproject.busbooking.view;
+import com.teamproject.busbooking.data.UserRepository;
 import com.teamproject.busbooking.service.AuthService;
+import com.teamproject.busbooking.service.BookingService;
+import com.teamproject.busbooking.service.BusService;
 
 import java.util.Scanner;
 public class WelcomeMenu {
     public void displayMenu() {
+       UserRepository userRepository = new UserRepository();
+       AuthService authService = new AuthService(userRepository);
+       BusService busService = new BusService();
+       BookingService bookingService = new BookingService();
+       LoginMenu loginMenu = new LoginMenu(authService, busService, bookingService);
+       Scanner scanner = new Scanner(System.in);
+
        while(true){
            System.out.println("1. Login");
            System.out.println("2. Register");
            System.out.println("3. Exit");
            System.out.println("Enter your choice: ");
-           Scanner scanner = new Scanner(System.in);
            int choice = scanner.nextInt();
-           AuthService authService = new AuthService();
-           LoginMenu loginMenu = new LoginMenu(authService);
            switch (choice) {
                case 1:
                    loginMenu.displayLogin();
@@ -24,6 +31,7 @@ public class WelcomeMenu {
                    System.out.println("Thank you for using BusMate");
                    System.exit(0);
                default:
+                   System.out.println("Invalid choice. Please try again.");
                    break;
            }
        }
