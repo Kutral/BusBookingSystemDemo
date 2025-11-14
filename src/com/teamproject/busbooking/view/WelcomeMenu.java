@@ -1,4 +1,4 @@
-package com.teamproject.busbooking.ui;
+package com.teamproject.busbooking.view;
 import com.teamproject.busbooking.service.AuthService;
 
 import java.util.Scanner;

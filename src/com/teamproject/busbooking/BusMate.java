@@ -1,6 +1,6 @@
 package com.teamproject.busbooking;
 
-import com.teamproject.busbooking.ui.WelcomeMenu;
+import com.teamproject.busbooking.view.WelcomeMenu;
 
 
 public class BusMate {
