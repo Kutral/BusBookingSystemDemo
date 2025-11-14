@@ -18,17 +18,16 @@ public class LoginMenu {
 
     }
 
-
     public void displayLogin() {
         Scanner scanner = new Scanner(System.in);
 
         String username = scanner.next("Enter username: ");
         String password = scanner.next("Enter Password: ");
 
-        User user = authService.authenticate(username, password);
-
-        if (user != null) {
-            System.out.println("Login successful!");
-        }
+//        User user = authService.authenticate(username, password);
+//
+//        if (user != null) {
+//            System.out.println("Login successful!");
+//        }
     }
 }

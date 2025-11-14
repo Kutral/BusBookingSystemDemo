@@ -13,7 +13,7 @@ public class WelcomeMenu {
            LoginMenu loginMenu = new LoginMenu();
            switch (choice) {
                case 1:
-                   loginMenu.displayLogin();
+                   //loginMenu.displayLogin();
                    break;
                case 2:
                    loginMenu.displayRegister();
