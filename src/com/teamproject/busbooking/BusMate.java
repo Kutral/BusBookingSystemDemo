@@ -4,7 +4,7 @@ import com.teamproject.busbooking.view.WelcomeMenu;
 
 
 public class BusMate {
-    public static final String version= "0.0.1";
+    public static final String version= "0.0.2";
 
     public static void main(String[] args) {
         System.out.println("Welcome to BusMate - " +  version);

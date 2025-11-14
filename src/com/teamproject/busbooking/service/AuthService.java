@@ -2,7 +2,6 @@ package com.teamproject.busbooking.service;
 
 import com.teamproject.busbooking.data.UserRepository;
 import com.teamproject.busbooking.model.User;
-
 import java.util.UUID;
 
 public class AuthService {

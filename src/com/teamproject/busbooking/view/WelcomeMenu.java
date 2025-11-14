@@ -7,7 +7,7 @@ import com.teamproject.busbooking.service.BusService;
 import java.util.Scanner;
 public class WelcomeMenu {
     public void displayMenu() {
-       UserRepository userRepository = new UserRepository();
+       UserRepository userRepository = UserRepository.getInstance();
        AuthService authService = new AuthService(userRepository);
        BusService busService = new BusService();
        BookingService bookingService = new BookingService();

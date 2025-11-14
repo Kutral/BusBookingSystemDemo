@@ -1,13 +1,9 @@
 package com.teamproject.busbooking.view;
 
-import com.teamproject.busbooking.model.Booking;
-import com.teamproject.busbooking.model.Bus;
 import com.teamproject.busbooking.model.User;
 import com.teamproject.busbooking.service.BookingService;
 import com.teamproject.busbooking.service.BusService;
-import com.teamproject.busbooking.util.InputUtil;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class UserMenu {

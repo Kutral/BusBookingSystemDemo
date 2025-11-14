@@ -19,7 +19,7 @@ public class LoginMenu {
     }
 
     public void displayRegister() {
-        System.out.println("Register");
+        System.out.println("You are in Register Menu : ");
         System.out.println("Enter username:");
         Scanner scanner = new Scanner(System.in);
         String username = scanner.next();
@@ -40,7 +40,7 @@ public class LoginMenu {
 
     public void displayLogin() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Login");
+        System.out.println("You are in Login Menu :");
         System.out.println("Enter username: ");
         String username = scanner.next();
         System.out.println("Enter password: ");
