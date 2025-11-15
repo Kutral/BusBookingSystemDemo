@@ -1,7 +1,7 @@
-package com.teamproject.busbooking.service;
+package com.teamproject.busmate.service;
 
-import com.teamproject.busbooking.data.UserRepository;
-import com.teamproject.busbooking.model.User;
+import com.teamproject.busmate.data.UserRepository;
+import com.teamproject.busmate.model.User;
 import java.util.UUID;
 
 public class AuthService {

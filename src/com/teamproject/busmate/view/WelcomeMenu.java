@@ -1,8 +1,8 @@
-package com.teamproject.busbooking.view;
-import com.teamproject.busbooking.data.UserRepository;
-import com.teamproject.busbooking.service.AuthService;
-import com.teamproject.busbooking.service.BookingService;
-import com.teamproject.busbooking.service.BusService;
+package com.teamproject.busmate.view;
+import com.teamproject.busmate.data.UserRepository;
+import com.teamproject.busmate.service.AuthService;
+import com.teamproject.busmate.service.BookingService;
+import com.teamproject.busmate.service.BusService;
 
 import java.util.Scanner;
 public class WelcomeMenu {

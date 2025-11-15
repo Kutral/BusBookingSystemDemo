@@ -1,8 +1,8 @@
-package com.teamproject.busbooking.view;
+package com.teamproject.busmate.view;
 
-import com.teamproject.busbooking.model.User;
-import com.teamproject.busbooking.service.BookingService;
-import com.teamproject.busbooking.service.BusService;
+import com.teamproject.busmate.model.User;
+import com.teamproject.busmate.service.BookingService;
+import com.teamproject.busmate.service.BusService;
 
 import java.util.Scanner;
 

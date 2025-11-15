@@ -1,6 +1,6 @@
-package com.teamproject.busbooking;
+package com.teamproject.busmate;
 
-import com.teamproject.busbooking.view.WelcomeMenu;
+import com.teamproject.busmate.view.WelcomeMenu;
 
 public class BusMate {
     public static final String version= "0.0.2";

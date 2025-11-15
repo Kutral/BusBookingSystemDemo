@@ -1,9 +1,9 @@
-package com.teamproject.busbooking.view;
+package com.teamproject.busmate.view;
 
-import com.teamproject.busbooking.model.User;
-import com.teamproject.busbooking.service.AuthService;
-import com.teamproject.busbooking.service.BookingService;
-import com.teamproject.busbooking.service.BusService;
+import com.teamproject.busmate.model.User;
+import com.teamproject.busmate.service.AuthService;
+import com.teamproject.busmate.service.BookingService;
+import com.teamproject.busmate.service.BusService;
 
 import java.util.Scanner;
 
@@ -11,6 +11,7 @@ public class LoginMenu {
     private final AuthService authService;
     private final BusService busService;
     private final BookingService bookingService;
+    private final Scanner scanner = new Scanner(System.in);
 
     public LoginMenu(AuthService authService, BusService busService, BookingService bookingService) {
         this.authService = authService;
@@ -21,7 +22,6 @@ public class LoginMenu {
     public void displayRegister() {
         System.out.println("You are in Register Menu : ");
         System.out.println("Enter username:");
-        Scanner scanner = new Scanner(System.in);
         String username = scanner.next();
         System.out.println("Enter password:");
         String password = scanner.next();
@@ -39,7 +39,6 @@ public class LoginMenu {
 
 
     public void displayLogin() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("You are in Login Menu :");
         System.out.println("Enter username: ");
         String username = scanner.next();
@@ -50,8 +49,15 @@ public class LoginMenu {
 
         if (user != null) {
             System.out.println("Login successful!");
-            UserMenu userMenu = new UserMenu(user, busService, bookingService);
-            userMenu.displayMenu();
+            // A simple way to check for admin role without modifying the User model yet.
+            // For a real application, user.getRole().equals("ADMIN") would be better.
+            if ("admin".equalsIgnoreCase(user.getUsername())) {
+                AdminMenu adminMenu = new AdminMenu(scanner, busService);
+                adminMenu.displayMenu();
+            } else {
+                UserMenu userMenu = new UserMenu(user, busService, bookingService);
+                userMenu.displayMenu();
+            }
         } else {
             System.out.println("Login failed. Please check your username and password.");
         }

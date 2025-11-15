@@ -1,6 +1,6 @@
-package com.teamproject.busbooking.data;
+package com.teamproject.busmate.data;
 
-import com.teamproject.busbooking.model.User;
+import com.teamproject.busmate.model.User;
 
 import java.util.ArrayList;
 import java.util.List;

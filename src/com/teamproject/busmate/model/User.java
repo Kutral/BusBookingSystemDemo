@@ -1,6 +1,4 @@
-package com.teamproject.busbooking.model;
-
-import java.util.Objects;
+package com.teamproject.busmate.model;
 
 public class User {
     private final String userId;
