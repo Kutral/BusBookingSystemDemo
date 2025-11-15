@@ -64,8 +64,6 @@ public class BusService {
                     "  From : " + bus.getBusFrom() +
                     "  To : " + bus.getBusTo());
 
-            System.out.println("Arey Bhai");
-            busData(bus);
         }
 
     }
