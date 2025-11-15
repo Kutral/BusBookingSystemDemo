@@ -10,6 +10,7 @@ public class BusMate {
         System.out.println("Welcome to BusMate - " +  version);
         System.out.println("-----------------------------------------");
         //test
+        //test2
         WelcomeMenu welcomeMenu = new WelcomeMenu();
         welcomeMenu.displayMenu();
     }
