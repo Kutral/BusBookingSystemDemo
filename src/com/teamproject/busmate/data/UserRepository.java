@@ -13,6 +13,7 @@ public class UserRepository {
 
         //default user for testing
         users.add(new User("1", "eswar", "eswar", "eswar@example.com", "USER"));
+        users.add(new User("2", "admin", "admin", "admin@example.com", "ADMIN"));
     }
 
     public static UserRepository getInstance() {
