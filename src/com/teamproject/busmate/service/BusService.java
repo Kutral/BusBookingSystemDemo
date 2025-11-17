@@ -20,14 +20,8 @@ public class BusService {
         System.out.println("Enter Bus Number: ");
         String busNumber = sc.next();
 
-        System.out.println("Enter Bus Type: A/C or Non A/C ");
+        System.out.println("Enter Bus Type: A/C or Non-A/C ");
         String busType = sc.next();
-
-        System.out.println("Enter the Starting Point");
-        String busStart = sc.next();
-
-        System.out.println("Enter the End point");
-        String busTo = sc.next();
 
         System.out.println("Enter the Bus Name");
         String busName = sc.next();
@@ -45,7 +39,7 @@ public class BusService {
     public void busData(Bus bus) {
         System.out.println("Bus ID: " + bus.getBusId() +
                 "  Bus Name: " + bus.getBusName() +
-                "  Number: " + bus.getBusNumber() +
+                "  Bus Number: " + bus.getBusNumber() +
                 "  Type: " + bus.getBusType() );
 
     }
@@ -57,7 +51,7 @@ public class BusService {
 
             System.out.println("Bus ID: " + bus.getBusId() +
                     "  Bus Name: " + bus.getBusName() +
-                    "  Number: " + bus.getBusNumber() +
+                    "  Bus Number: " + bus.getBusNumber() +
                     "  Type: " + bus.getBusType() );
         }
     }
