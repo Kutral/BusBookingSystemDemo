@@ -20,7 +20,9 @@ public class AdminMenu {
             System.out.println("\nAdmin Menu");
             System.out.println("1. Add Bus");
             System.out.println("2. View All Buses");
-            System.out.println("4.Exit");
+            System.out.println("3.Search bus");
+            System.out.println("4.Delete bus");
+            System.out.println("5.Exit");
             System.out.println("Enter your choice: ");
 
             String choice = sc.next();
@@ -31,10 +33,13 @@ public class AdminMenu {
                 case "2":
                     busService.viewAllBuses();
                     break;
-//                case "3":
-//                    b.searchBus();
-//                    break;
+                case "3":
+                    busService.searchBus();
+                    break;
                 case "4":
+                    busService.deleteBus();
+                    break;
+                case "5":
                     System.out.println("Logging out...");
                     return;
                 default:

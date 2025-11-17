@@ -36,8 +36,7 @@ public class BusService {
 
         bus.setBusType(busType);
         bus.setBusName(busName);
-        bus.setBusFrom(busStart);
-        bus.setBusTo(busTo);
+
 
         busRepo.addBus(bus);
         System.out.println("Bus added successfully!");
@@ -47,9 +46,8 @@ public class BusService {
         System.out.println("Bus ID: " + bus.getBusId() +
                 "  Bus Name: " + bus.getBusName() +
                 "  Number: " + bus.getBusNumber() +
-                "  Type: " + bus.getBusType() +
-                "  From : " + bus.getBusFrom() +
-                "  To : " + bus.getBusTo());
+                "  Type: " + bus.getBusType() );
+
     }
 
     public void viewAllBuses() {
@@ -60,25 +58,25 @@ public class BusService {
             System.out.println("Bus ID: " + bus.getBusId() +
                     "  Bus Name: " + bus.getBusName() +
                     "  Number: " + bus.getBusNumber() +
-                    "  Type: " + bus.getBusType() +
-                    "  From : " + bus.getBusFrom() +
-                    "  To : " + bus.getBusTo());
-
+                    "  Type: " + bus.getBusType() );
         }
+    }
+
+    public void searchBus() {
+        System.out.println("Enter the BusId");
+        String id = sc.next();
+        Bus b = busRepo.searchBusById(id);
+        if (b != null) {
+            busData(b);
+        } else {
+            System.out.println("The Entered Bus is not Availble");
+        }
+    }
+    public void deleteBus() {
+        System.out.println("Enter the BusId");
+        String id = sc.next();
+        busRepo.deleteBus(id);
 
     }
-//    public void searchBus() {
-//        System.out.println("Enter the BusId");
-//        int id = sc.nextInt();
-//        busRepo.searchBus(id);
-//    }
-//    public void searchBus(int id) {
-//        for (Bus bus : buses) {
-//            if (bus.getBusId() .equals(id)) {
-//                b.busData(bus);
-//            }
-//        }
-//        b.busData(null);          // Not found
-//    }
 }
 
