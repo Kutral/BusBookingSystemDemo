@@ -11,6 +11,7 @@ public class UserMenu {
     private final BusService busService;
     private final BookingService bookingService;
 
+
     public UserMenu(User currentUser, BusService busService, BookingService bookingService) {
         this.currentUser = currentUser;
         this.busService = busService;
@@ -21,10 +22,9 @@ public class UserMenu {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("\nUser Menu");
-            System.out.println("1. View All Buses");
-            System.out.println("2. Book a Ticket");
-            System.out.println("3. View My Bookings");
-            System.out.println("4. Logout");
+            System.out.println("1. Book a Ticket");
+            System.out.println("2. View My Bookings");
+            System.out.println("3. Logout");
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
@@ -32,15 +32,12 @@ public class UserMenu {
 
             switch (choice) {
                 case 1:
-                    // viewAllBuses();
+                     BookingService.bookTicket();
                     break;
                 case 2:
-                    // bookTicket();
-                    break;
-                case 3:
                     // viewMyBookings();
                     break;
-                case 4:
+                case 3:
                     System.out.println("Logging out...");
                     return; // Exit the user menu and return to the main menu
                 default:
