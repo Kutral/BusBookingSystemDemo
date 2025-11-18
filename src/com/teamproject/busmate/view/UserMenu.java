@@ -6,7 +6,7 @@ import com.teamproject.busmate.service.BusService;
 
 import java.util.Scanner;
 
-public class UserMenu {
+public class UserMenu extends BaseView {
     private final User currentUser;
     private final BusService busService;
     private final BookingService bookingService;
@@ -21,11 +21,11 @@ public class UserMenu {
     public void displayMenu() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("\nUser Menu");
-            System.out.println("1. Book a Ticket");
-            System.out.println("2. View My Bookings");
-            System.out.println("3. Logout");
-            System.out.print("Enter your choice: ");
+            print("\nUser Menu");
+            print("1. Book a Ticket");
+            print("2. View My Bookings");
+            print("3. Logout");
+            print("Enter your choice: ");
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // consume newline
@@ -38,10 +38,10 @@ public class UserMenu {
                     // viewMyBookings();
                     break;
                 case 3:
-                    System.out.println("Logging out...");
+                    print("Logging out...");
                     return;
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                    print("Invalid choice. Please try again.");
             }
         }
     }

@@ -5,72 +5,29 @@ import com.teamproject.busmate.data.BusRepository;
 import com.teamproject.busmate.model.Bus;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class BusService {
 
     private BusRepository busRepo = new BusRepository();
-    Scanner sc = new Scanner(System.in);
 
-    public void addBus() {
-
-        System.out.println("Enter Bus ID: ");
-        String busId = sc.next();
-
-        System.out.println("Enter Bus Number: ");
-        String busNumber = sc.next();
-
-        System.out.println("Enter Bus Type: A/C or Non-A/C ");
-        String busType = sc.next();
-
-        System.out.println("Enter the Bus Name");
-        String busName = sc.next();
-
+    public Bus addBus(String busId, String busNumber, String busType, String busName) {
         Bus bus = new Bus(busId, busNumber);
-
         bus.setBusType(busType);
         bus.setBusName(busName);
-
-
         busRepo.addBus(bus);
-        System.out.println("Bus added successfully!");
+        return bus;
     }
 
-    public void busData(Bus bus) {
-        System.out.println("Bus ID: " + bus.getBusId() +
-                "  Bus Name: " + bus.getBusName() +
-                "  Bus Number: " + bus.getBusNumber() +
-                "  Type: " + bus.getBusType() );
 
+    public List<Bus> viewAllBuses() {
+        return busRepo.getAllBuses();
     }
 
-    public void viewAllBuses() {
-        List<Bus> buses = busRepo.getAllBuses();
-        System.out.println("\nAll Buses:");
-        for (Bus bus : buses) {
-
-            System.out.println("Bus ID: " + bus.getBusId() +
-                    "  Bus Name: " + bus.getBusName() +
-                    "  Bus Number: " + bus.getBusNumber() +
-                    "  Type: " + bus.getBusType() );
-        }
+    public Bus searchBus(String id) {
+        return busRepo.searchBusById(id);
     }
-
-    public void searchBus() {
-        System.out.println("Enter the BusId");
-        String id = sc.next();
-        Bus b = busRepo.searchBusById(id);
-        if (b != null) {
-            busData(b);
-        } else {
-            System.out.println("The Entered Bus is not Availble");
-        }
-    }
-    public void deleteBus() {
-        System.out.println("Enter the BusId");
-        String id = sc.next();
-        busRepo.deleteBus(id);
-
+    public boolean deleteBus(String id) {
+        return busRepo.deleteBus(id);
     }
 }
 

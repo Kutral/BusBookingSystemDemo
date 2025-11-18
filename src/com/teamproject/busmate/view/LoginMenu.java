@@ -7,7 +7,7 @@ import com.teamproject.busmate.service.BusService;
 
 import java.util.Scanner;
 
-public class LoginMenu {
+public class LoginMenu extends BaseView {
     private final AuthService authService;
     private final BusService busService;
     private final BookingService bookingService;
@@ -20,38 +20,38 @@ public class LoginMenu {
     }
 
     public void displayRegister() {
-        System.out.println("-----------------------------------------");
-        System.out.println("You are in Register Menu : ");
-        System.out.println("Enter username:");
+        print("-----------------------------------------");
+        print("You are in Register Menu : ");
+        print("Enter username:");
         String username = scanner.next();
-        System.out.println("Enter password:");
+        print("Enter password:");
         String password = scanner.next();
-        System.out.println("Enter email:");
+        print("Enter email:");
         String email = scanner.next();
-        System.out.println("-----------------------------------------");
+        print("-----------------------------------------");
 
 
         User user = authService.register(username, password, email);
         if (user != null) {
-            System.out.println("Registration successful!");
+            print("Registration successful!");
         } else {
-            System.out.println("Registration failed. Username might already exist.");
+            print("Registration failed. Username might already exist.");
         }
 
     }
 
     public void displayLogin() {
-        System.out.println("-----------------------------------------");
-        System.out.println("You are in Login Menu :");
-        System.out.println("Enter username: ");
+        print("-----------------------------------------");
+        print("You are in Login Menu :");
+        print("Enter username: ");
         String username = scanner.next();
-        System.out.println("Enter password: ");
+        print("Enter password: ");
         String password = scanner.next();
-        System.out.println("-----------------------------------------");
+        print("-----------------------------------------");
         User user = authService.authenticate(username, password);
 
         if (user != null) {
-            System.out.println("Login successful!");
+            print("Login successful!");
 
             if ("admin".equalsIgnoreCase(user.getUsername())) {
                 AdminMenu adminMenu = new AdminMenu(scanner, busService);
@@ -61,7 +61,7 @@ public class LoginMenu {
                 userMenu.displayMenu();
             }
         } else {
-            System.out.println("Login failed. Please check your username and password.");
+            print("Login failed. Please check your username and password.");
         }
     }
 }

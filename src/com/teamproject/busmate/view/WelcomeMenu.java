@@ -5,7 +5,7 @@ import com.teamproject.busmate.service.BookingService;
 import com.teamproject.busmate.service.BusService;
 
 import java.util.Scanner;
-public class WelcomeMenu {
+public class WelcomeMenu extends BaseView {
     public void displayMenu() {
        UserRepository userRepository = UserRepository.getInstance();
        AuthService authService = new AuthService(userRepository);
@@ -15,11 +15,11 @@ public class WelcomeMenu {
        Scanner scanner = new Scanner(System.in);
 
        while(true){
-           System.out.println("1. Login");
-           System.out.println("2. Register");
-           System.out.println("3. Exit");
-           System.out.println("-----------------------------------------");
-           System.out.println("Enter your choice: ");
+           print("1. Login");
+           print("2. Register");
+           print("3. Exit");
+           print("-----------------------------------------");
+           print("Enter your choice: ");
            int choice = scanner.nextInt();
            switch (choice) {
                case 1:
@@ -29,11 +29,11 @@ public class WelcomeMenu {
                    loginMenu.displayRegister();
                    break;
                case 3:
-                   System.out.println("Thank you for using BusMate");
-                   System.out.println("-----------------------------------------");
+                   print("Thank you for using BusMate");
+                   print("-----------------------------------------");
                    System.exit(0);
                default:
-                   System.out.println("Invalid choice. Please try again.");
+                   print("Invalid choice. Please try again.");
                    break;
            }
        }
