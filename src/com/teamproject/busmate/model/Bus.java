@@ -40,9 +40,7 @@ public class Bus {
     }
     public void setBusFrom(String s) {
         busFrom = s;
-
     }
-
     public String getBusTo() {
         return busTo;
     }

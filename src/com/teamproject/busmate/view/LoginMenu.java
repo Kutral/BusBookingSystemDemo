@@ -20,6 +20,7 @@ public class LoginMenu {
     }
 
     public void displayRegister() {
+        System.out.println("-----------------------------------------");
         System.out.println("You are in Register Menu : ");
         System.out.println("Enter username:");
         String username = scanner.next();
@@ -27,6 +28,7 @@ public class LoginMenu {
         String password = scanner.next();
         System.out.println("Enter email:");
         String email = scanner.next();
+        System.out.println("-----------------------------------------");
 
 
         User user = authService.register(username, password, email);
@@ -35,22 +37,22 @@ public class LoginMenu {
         } else {
             System.out.println("Registration failed. Username might already exist.");
         }
+
     }
 
-
     public void displayLogin() {
+        System.out.println("-----------------------------------------");
         System.out.println("You are in Login Menu :");
         System.out.println("Enter username: ");
         String username = scanner.next();
         System.out.println("Enter password: ");
         String password = scanner.next();
-
+        System.out.println("-----------------------------------------");
         User user = authService.authenticate(username, password);
 
         if (user != null) {
             System.out.println("Login successful!");
-            // A simple way to check for admin role without modifying the User model yet.
-            // For a real application, user.getRole().equals("ADMIN") would be better.
+
             if ("admin".equalsIgnoreCase(user.getUsername())) {
                 AdminMenu adminMenu = new AdminMenu(scanner, busService);
                 adminMenu.displayMenu();

@@ -16,13 +16,14 @@ public class AdminMenu {
 
     public void displayMenu() {
         while (true) {
-
+            System.out.println("-----------------------------------------");
             System.out.println("\nAdmin Menu");
             System.out.println("1. Add Bus");
             System.out.println("2. View All Buses");
             System.out.println("3.Search bus");
             System.out.println("4.Delete bus");
             System.out.println("5.Exit");
+            System.out.println("-----------------------------------------");
             System.out.println("Enter your choice: ");
 
             String choice = sc.next();

@@ -18,6 +18,7 @@ public class WelcomeMenu {
            System.out.println("1. Login");
            System.out.println("2. Register");
            System.out.println("3. Exit");
+           System.out.println("-----------------------------------------");
            System.out.println("Enter your choice: ");
            int choice = scanner.nextInt();
            switch (choice) {
@@ -29,6 +30,7 @@ public class WelcomeMenu {
                    break;
                case 3:
                    System.out.println("Thank you for using BusMate");
+                   System.out.println("-----------------------------------------");
                    System.exit(0);
                default:
                    System.out.println("Invalid choice. Please try again.");

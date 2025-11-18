@@ -32,14 +32,14 @@ public class UserMenu {
 
             switch (choice) {
                 case 1:
-                     BookingService.bookTicket();
+                 //    BookingService.bookTicket();
                     break;
                 case 2:
                     // viewMyBookings();
                     break;
                 case 3:
                     System.out.println("Logging out...");
-                    return; // Exit the user menu and return to the main menu
+                    return;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
