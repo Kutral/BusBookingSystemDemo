@@ -1,6 +1,7 @@
 package com.teamproject.busmate.view;
 
 import com.teamproject.busmate.Base.BaseView;
+import com.teamproject.busmate.Constants.constants;
 import com.teamproject.busmate.model.User;
 import com.teamproject.busmate.service.AuthService;
 import com.teamproject.busmate.service.BookingService;
@@ -13,6 +14,7 @@ public class LoginMenu extends BaseView {
     private final BusService busService;
     private final BookingService bookingService;
     private final Scanner scanner = new Scanner(System.in);
+    private constants constants;
 
     public LoginMenu(AuthService authService, BusService busService, BookingService bookingService) {
         this.authService = authService;
@@ -55,7 +57,8 @@ public class LoginMenu extends BaseView {
             print("Login successful!");
 
             if ("admin".equalsIgnoreCase(user.getUsername())) {
-                AdminMenu adminMenu = new AdminMenu(scanner, busService);
+                
+                AdminMenu adminMenu = new AdminMenu(scanner, busService,constants);
                 adminMenu.displayMenu();
             } else {
                 UserMenu userMenu = new UserMenu(user, busService, bookingService);

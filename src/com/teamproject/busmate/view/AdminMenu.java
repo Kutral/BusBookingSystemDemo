@@ -2,6 +2,7 @@ package com.teamproject.busmate.view;
 
 
 import com.teamproject.busmate.Base.BaseView;
+import com.teamproject.busmate.Constants.constants;
 import com.teamproject.busmate.model.Bus;
 import com.teamproject.busmate.service.BusService;
 
@@ -11,35 +12,27 @@ import java.util.Scanner;
 public class AdminMenu extends BaseView {
     private final Scanner sc;
     private final BusService busService;
+    private final constants Constants;
 
-    public AdminMenu(Scanner sc, BusService busService) {
+    public AdminMenu(Scanner sc, BusService busService, constants Constants) {
         this.sc = sc;
         this.busService = busService;
+        this.Constants = Constants;
     }
 
     public void displayMenu() {
         while (true) {
-            print("-----------------------------------------");
-            print("\nAdmin Menu");
-            print("1. Add Bus");
-            print("2. View All Buses");
-            print("3.Search bus");
-            print("4.Delete bus");
-            print("5.Exit");
-            print("-----------------------------------------");
-            print("Enter your choice: ");
+
+            printAll(Constants.AdminMenu);
 
             String choice = sc.next();
             switch (choice) {
                 case "1":
-                    print("Enter Bus ID: ");
-                    String busId = sc.next();
-                    print("Enter Bus Number: ");
-                    String busNumber = sc.next();
-                    print("Enter Bus Type: A/C or Non-A/C ");
-                    String busType = sc.next();
-                    print("Enter the Bus Name");
-                    String busName = sc.next();
+
+                    String busId = printQuestion("Enter Bus ID: ");
+                    String busNumber = printQuestion("Enter Bus Number: ");
+                    String busType = printQuestion("Enter Bus Type: ");
+                    String busName = printQuestion("Enter the Bus Name: ");
                     if (busService.addBus(busId, busNumber, busType, busName) != null) {
                         print("Bus added successfully!");
                     }
