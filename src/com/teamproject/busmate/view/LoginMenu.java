@@ -13,13 +13,13 @@ public class LoginMenu extends BaseView {
     private final AuthService authService;
     private final BusService busService;
     private final BookingService bookingService;
-    private final Scanner scanner = new Scanner(System.in);
-    private constants constants;
+    private final Scanner scanner;
 
-    public LoginMenu(AuthService authService, BusService busService, BookingService bookingService) {
+    public LoginMenu(Scanner scanner, AuthService authService, BusService busService, BookingService bookingService) {
         this.authService = authService;
         this.busService = busService;
         this.bookingService = bookingService;
+        this.scanner = scanner;
     }
 
     public void displayRegister() {
@@ -58,10 +58,10 @@ public class LoginMenu extends BaseView {
 
             if ("admin".equalsIgnoreCase(user.getUsername())) {
                 
-                AdminMenu adminMenu = new AdminMenu(scanner, busService,constants);
+                AdminMenu adminMenu = new AdminMenu(scanner, busService); // Already correct
                 adminMenu.displayMenu();
             } else {
-                UserMenu userMenu = new UserMenu(user, busService, bookingService);
+                UserMenu userMenu = new UserMenu(scanner, user, busService, bookingService);
                 userMenu.displayMenu();
             }
         } else {

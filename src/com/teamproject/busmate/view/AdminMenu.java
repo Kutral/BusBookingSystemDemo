@@ -1,6 +1,5 @@
 package com.teamproject.busmate.view;
 
-
 import com.teamproject.busmate.Base.BaseView;
 import com.teamproject.busmate.Constants.constants;
 import com.teamproject.busmate.model.Bus;
@@ -12,27 +11,25 @@ import java.util.Scanner;
 public class AdminMenu extends BaseView {
     private final Scanner sc;
     private final BusService busService;
-    private final constants Constants;
 
-    public AdminMenu(Scanner sc, BusService busService, constants Constants) {
+
+    public AdminMenu(Scanner sc, BusService busService) {
         this.sc = sc;
         this.busService = busService;
-        this.Constants = Constants;
     }
 
     public void displayMenu() {
         while (true) {
 
-            printAll(Constants.AdminMenu);
+            printAll(constants.AdminMenu);
 
             String choice = sc.next();
             switch (choice) {
                 case "1":
-
-                    String busId = printQuestion("Enter Bus ID: ");
-                    String busNumber = printQuestion("Enter Bus Number: ");
-                    String busType = printQuestion("Enter Bus Type: ");
-                    String busName = printQuestion("Enter the Bus Name: ");
+                    String busId = printQuestion("Enter Bus ID: ", sc);
+                    String busNumber = printQuestion("Enter Bus Number: ", sc);
+                    String busType = printQuestion("Enter Bus Type: ", sc);
+                    String busName = printQuestion("Enter the Bus Name: ", sc);
                     if (busService.addBus(busId, busNumber, busType, busName) != null) {
                         print("Bus added successfully!");
                     }

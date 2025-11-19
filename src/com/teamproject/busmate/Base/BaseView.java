@@ -3,7 +3,7 @@ package com.teamproject.busmate.Base;
 import java.util.Scanner;
 
 
-public abstract class BaseView {
+public class BaseView {
     public void print(String message) {
         System.out.println(message);
     }
@@ -12,8 +12,8 @@ public abstract class BaseView {
             System.out.println(s);
         }
     }
-    Scanner scanner = new Scanner(System.in);
-    public String printQuestion(String question) {
+    // The scanner is now passed into the constructor of the view classes that need it.
+    public String printQuestion(String question, Scanner scanner) {
         System.out.println(question);
         return scanner.next();
 

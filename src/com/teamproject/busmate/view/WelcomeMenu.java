@@ -7,13 +7,18 @@ import com.teamproject.busmate.service.BusService;
 
 import java.util.Scanner;
 public class WelcomeMenu extends BaseView {
+    private final Scanner scanner;
+
+    public WelcomeMenu(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
     public void displayMenu() {
        UserRepository userRepository = UserRepository.getInstance();
        AuthService authService = new AuthService(userRepository);
        BusService busService = new BusService();
        BookingService bookingService = new BookingService();
-       LoginMenu loginMenu = new LoginMenu(authService, busService, bookingService);
-       Scanner scanner = new Scanner(System.in);
+       LoginMenu loginMenu = new LoginMenu(scanner, authService, busService, bookingService);
 
        while(true){
            print("1. Login");

@@ -11,16 +11,16 @@ public class UserMenu extends BaseView {
     private final User currentUser;
     private final BusService busService;
     private final BookingService bookingService;
+    private final Scanner scanner;
 
-
-    public UserMenu(User currentUser, BusService busService, BookingService bookingService) {
+    public UserMenu(Scanner scanner, User currentUser, BusService busService, BookingService bookingService) {
         this.currentUser = currentUser;
         this.busService = busService;
         this.bookingService = bookingService;
+        this.scanner = scanner;
     }
 
     public void displayMenu() {
-        Scanner scanner = new Scanner(System.in);
         while (true) {
             print("\nUser Menu");
             print("1. Book a Ticket");
