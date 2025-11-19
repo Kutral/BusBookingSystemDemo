@@ -1,4 +1,5 @@
 package com.teamproject.busmate.view;
+import com.teamproject.busmate.Base.BaseView;
 import com.teamproject.busmate.data.UserRepository;
 import com.teamproject.busmate.service.AuthService;
 import com.teamproject.busmate.service.BookingService;

@@ -1,4 +1,4 @@
-package com.teamproject.busmate.view;
+package com.teamproject.busmate.Base;
 
 public abstract class BaseView {
     public void print(String message) {

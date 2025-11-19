@@ -1,6 +1,7 @@
 package com.teamproject.busmate.view;
 
 
+import com.teamproject.busmate.Base.BaseView;
 import com.teamproject.busmate.model.Bus;
 import com.teamproject.busmate.service.BusService;
 

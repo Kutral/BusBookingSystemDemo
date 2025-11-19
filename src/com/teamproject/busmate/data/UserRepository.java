@@ -10,8 +10,7 @@ public class UserRepository {
     private final List<User> users = new ArrayList<>();
 
     private UserRepository() {
-
-        //default user for testing
+        
         users.add(new User("1", "user", "user", "user@example.com", "USER"));
         users.add(new User("2", "admin", "admin", "admin@example.com", "ADMIN"));
     }
