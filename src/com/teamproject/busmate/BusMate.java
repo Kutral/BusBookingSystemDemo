@@ -5,7 +5,7 @@ import com.teamproject.busmate.view.WelcomeMenu;
 import java.util.Scanner;
 
 public class BusMate {
-    public static final String version= "0.0.4";
+    public static final String version= "0.0.5";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
