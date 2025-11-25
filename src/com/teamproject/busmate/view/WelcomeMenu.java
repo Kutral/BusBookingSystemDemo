@@ -1,5 +1,6 @@
 package com.teamproject.busmate.view;
 import com.teamproject.busmate.Base.BaseView;
+import com.teamproject.busmate.Constants.constants;
 import com.teamproject.busmate.data.UserRepository;
 import com.teamproject.busmate.service.AuthService;
 import com.teamproject.busmate.service.BookingService;
@@ -21,11 +22,7 @@ public class WelcomeMenu extends BaseView {
        LoginMenu loginMenu = new LoginMenu(scanner, authService, busService, bookingService);
 
        while(true){
-           print("1. Login");
-           print("2. Register");
-           print("3. Exit");
-           print("-----------------------------------------");
-           print("Enter your choice: ");
+           printAll(constants.WelcomeMenu);
            int choice = scanner.nextInt();
            switch (choice) {
                case 1:
@@ -35,11 +32,11 @@ public class WelcomeMenu extends BaseView {
                    loginMenu.displayRegister();
                    break;
                case 3:
-                   print("Thank you for using BusMate");
+                   print(constants.ThankYouMessage);
                    print("-----------------------------------------");
                    System.exit(0);
                default:
-                   print("Invalid choice. Please try again.");
+                   print(constants.InvalidChoiceMessage);
                    break;
            }
        }

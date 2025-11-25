@@ -26,10 +26,12 @@ public class AdminMenu extends BaseView {
             String choice = sc.next();
             switch (choice) {
                 case "1":
+                    print("-----------------------------------------");
                     String busId = printQuestion("Enter Bus ID: ", sc);
                     String busNumber = printQuestion("Enter Bus Number: ", sc);
                     String busType = printQuestion("Enter Bus Type: ", sc);
                     String busName = printQuestion("Enter the Bus Name: ", sc);
+                    print("-----------------------------------------");
                     if (busService.addBus(busId, busNumber, busType, busName) != null) {
                         print("Bus added successfully!");
                     }
@@ -37,14 +39,17 @@ public class AdminMenu extends BaseView {
                 case "2":
                     List<Bus> buses = busService.viewAllBuses();
                     print("\nAll Buses:");
+                    print("-----------------------------------------");
                     for (Bus bus : buses) {
                         print("Bus ID: " + bus.getBusId() +
                                 "  Bus Name: " + bus.getBusName() +
                                 "  Bus Number: " + bus.getBusNumber() +
                                 "  Type: " + bus.getBusType());
                     }
+                    print("-----------------------------------------");
                     break;
                 case "3":
+                    print("-----------------------------------------");
                     print("Enter the BusId");
                     String searchId = sc.next();
                     Bus bus = busService.searchBus(searchId);
@@ -56,8 +61,10 @@ public class AdminMenu extends BaseView {
                     } else {
                         print("The Entered Bus is not Availble");
                     }
+                    print("-----------------------------------------");
                     break;
                 case "4":
+                    print("-----------------------------------------");
                     print("Enter the BusId");
                     String id = sc.next();
                     if (busService.deleteBus(id)) {
@@ -65,6 +72,7 @@ public class AdminMenu extends BaseView {
                     } else {
                         print("The bus was Not found");
                     }
+                    print("-----------------------------------------");
                     break;
                 case "5":
                     print("Logging out...");

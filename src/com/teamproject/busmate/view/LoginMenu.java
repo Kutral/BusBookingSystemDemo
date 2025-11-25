@@ -23,16 +23,10 @@ public class LoginMenu extends BaseView {
     }
 
     public void displayRegister() {
-        print("-----------------------------------------");
-        print("You are in Register Menu : ");
-        print("Enter username:");
+        printAll(constants.RegisterMenu);
         String username = scanner.next();
-        print("Enter password:");
         String password = scanner.next();
-        print("Enter email:");
         String email = scanner.next();
-        print("-----------------------------------------");
-
 
         User user = authService.register(username, password, email);
         if (user != null) {
@@ -44,13 +38,9 @@ public class LoginMenu extends BaseView {
     }
 
     public void displayLogin() {
-        print("-----------------------------------------");
-        print("You are in Login Menu :");
-        print("Enter username: ");
+        printAll(constants.LoginMenu);
         String username = scanner.next();
-        print("Enter password: ");
         String password = scanner.next();
-        print("-----------------------------------------");
         User user = authService.authenticate(username, password);
 
         if (user != null) {

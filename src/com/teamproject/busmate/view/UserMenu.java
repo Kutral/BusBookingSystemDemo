@@ -4,6 +4,7 @@ import com.teamproject.busmate.Base.BaseView;
 import com.teamproject.busmate.model.User;
 import com.teamproject.busmate.service.BookingService;
 import com.teamproject.busmate.service.BusService;
+import com.teamproject.busmate.Constants.constants;
 
 import java.util.Scanner;
 
@@ -22,11 +23,7 @@ public class UserMenu extends BaseView {
 
     public void displayMenu() {
         while (true) {
-            print("\nUser Menu");
-            print("1. Book a Ticket");
-            print("2. View My Bookings");
-            print("3. Logout");
-            print("Enter your choice: ");
+            printAll(constants.UserMenu);
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // consume newline
