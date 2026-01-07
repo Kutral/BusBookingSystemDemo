@@ -6,7 +6,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class BookingRepository {
+    private static final BookingRepository instance = new BookingRepository();
     private final List<Booking> bookings = new ArrayList<>();
+
+    private BookingRepository() {}
+
+    public static BookingRepository getInstance() {
+        return instance;
+    }
 
     public void addBooking(Booking booking) {
         bookings.add(booking);

@@ -13,7 +13,7 @@ public class BookingService {
     private final BookingRepository bookingRepository;
 
     public BookingService() {
-        this.bookingRepository = new BookingRepository();
+        this.bookingRepository = BookingRepository.getInstance();
     }
 
     public Booking createBooking(User user, Bus bus, List<Integer> seatNumbers) {

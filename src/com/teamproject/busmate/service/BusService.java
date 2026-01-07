@@ -9,7 +9,7 @@ import java.util.List;
 
 public class BusService {
 
-    private BusRepository busRepo = new BusRepository();
+    private BusRepository busRepo = BusRepository.getInstance();
 
     public Bus addBus(String busId, String busNumber, String busType, String busName, String from, String to, int capacity, double price) {
         Bus bus = new Bus(busId, busNumber, capacity, price);

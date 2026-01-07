@@ -6,8 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BusRepository {
-
+    private static final BusRepository instance = new BusRepository();
     private final List<Bus> buses = new ArrayList<>();
+
+    private BusRepository() {}
+
+    public static BusRepository getInstance() {
+        return instance;
+    }
 
     public void addBus(Bus bus) {
         buses.add(bus);
