@@ -1,40 +1,45 @@
 package com.teamproject.busmate.service;
 
-import com.teamproject.busmate.view.LoginMenu;
+import com.teamproject.busmate.data.BookingRepository;
+import com.teamproject.busmate.model.Booking;
+import com.teamproject.busmate.model.Bus;
+import com.teamproject.busmate.model.Seat;
+import com.teamproject.busmate.model.User;
 
-import java.util.Scanner;
+import java.util.List;
+import java.util.UUID;
 
 public class BookingService {
-    Scanner sc = new Scanner(System.in);
-//    LoginMenu loginMenu = new LoginMenu();
+    private final BookingRepository bookingRepository;
 
-    public void bookTicket(){
-        System.out.println("---------------------------------------------------");
+    public BookingService() {
+        this.bookingRepository = new BookingRepository();
+    }
 
-        while(true){
-            System.out.println("1. Enter your From Location : ");
-            System.out.println("1. Chennai");
-            System.out.println("2. Coimbatore");
-            System.out.println("3. Selam");
-            System.out.println("4. Tenkasi");
-            System.out.println("Enter your choice: ");
-            int choice = sc.nextInt();
-            switch (choice) {
-                case 1:
-//                    loginMenu.displayLogin();
-                    break;
-                case 2:
-//                    loginMenu.displayRegister();
-                    break;
-                case 3:
-                    System.out.println("Thank you for using BusMate");
-                    System.exit(0);
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-                    break;
+    public Booking createBooking(User user, Bus bus, List<Integer> seatNumbers) {
+        // Validate seats
+        for (Integer seatNum : seatNumbers) {
+            if (seatNum < 1 || seatNum > bus.getCapacity()) {
+                throw new IllegalArgumentException("Invalid seat number: " + seatNum);
+            }
+            Seat seat = bus.getSeats().get(seatNum - 1);
+            if (seat.isBooked()) {
+                throw new IllegalStateException("Seat " + seatNum + " is already booked.");
             }
         }
 
+        // Book seats
+        for (Integer seatNum : seatNumbers) {
+            bus.getSeats().get(seatNum - 1).setBooked(true);
+        }
 
+        double totalPrice = seatNumbers.size() * bus.getPrice();
+        Booking booking = new Booking(UUID.randomUUID().toString(), user.getUserId(), bus.getBusId(), seatNumbers, totalPrice);
+        bookingRepository.addBooking(booking);
+        return booking;
+    }
+
+    public List<Booking> getUserBookings(User user) {
+        return bookingRepository.getBookingsByUserId(user.getUserId());
     }
 }

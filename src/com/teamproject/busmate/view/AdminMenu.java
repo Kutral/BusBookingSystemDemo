@@ -31,8 +31,15 @@ public class AdminMenu extends BaseView {
                     String busNumber = printQuestion("Enter Bus Number: ", sc);
                     String busType = printQuestion("Enter Bus Type: ", sc);
                     String busName = printQuestion("Enter the Bus Name: ", sc);
+                    String from = printQuestion("Enter From Location: ", sc);
+                    String to = printQuestion("Enter To Location: ", sc);
+                    print("Enter Capacity: ");
+                    int capacity = sc.nextInt();
+                    print("Enter Price: ");
+                    double price = sc.nextDouble();
+                    sc.nextLine(); // consume newline
                     print("-----------------------------------------");
-                    if (busService.addBus(busId, busNumber, busType, busName) != null) {
+                    if (busService.addBus(busId, busNumber, busType, busName, from, to, capacity, price) != null) {
                         print("Bus added successfully!");
                     }
                     break;
@@ -42,9 +49,12 @@ public class AdminMenu extends BaseView {
                     print("-----------------------------------------");
                     for (Bus bus : buses) {
                         print("Bus ID: " + bus.getBusId() +
-                                "  Bus Name: " + bus.getBusName() +
-                                "  Bus Number: " + bus.getBusNumber() +
-                                "  Type: " + bus.getBusType());
+                                " | Name: " + bus.getBusName() +
+                                " | No: " + bus.getBusNumber() +
+                                " | Type: " + bus.getBusType() +
+                                " | Route: " + bus.getBusFrom() + "->" + bus.getBusTo() +
+                                " | Price: " + bus.getPrice() +
+                                " | Cap: " + bus.getCapacity());
                     }
                     print("-----------------------------------------");
                     break;
@@ -55,9 +65,12 @@ public class AdminMenu extends BaseView {
                     Bus bus = busService.searchBus(searchId);
                     if (bus != null) {
                         print("Bus ID: " + bus.getBusId() +
-                                "  Bus Name: " + bus.getBusName() +
-                                "  Bus Number: " + bus.getBusNumber() +
-                                "  Type: " + bus.getBusType());
+                                " | Name: " + bus.getBusName() +
+                                " | No: " + bus.getBusNumber() +
+                                " | Type: " + bus.getBusType() +
+                                " | Route: " + bus.getBusFrom() + "->" + bus.getBusTo() +
+                                " | Price: " + bus.getPrice() +
+                                " | Cap: " + bus.getCapacity());
                     } else {
                         print("The Entered Bus is not Availble");
                     }

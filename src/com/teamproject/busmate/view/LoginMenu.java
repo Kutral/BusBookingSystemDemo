@@ -28,6 +28,16 @@ public class LoginMenu extends BaseView {
         String password = scanner.next();
         String email = scanner.next();
 
+        com.teamproject.busmate.service.ValidationService validationService = new com.teamproject.busmate.service.ValidationService();
+        if (!validationService.isValidEmail(email)) {
+            print("Invalid email format.");
+            return;
+        }
+        if (!validationService.isValidPassword(password)) {
+            print("Password must be at least 6 characters long.");
+            return;
+        }
+
         User user = authService.register(username, password, email);
         if (user != null) {
             print("Registration successful!");
@@ -46,7 +56,7 @@ public class LoginMenu extends BaseView {
         if (user != null) {
             print("Login successful!");
 
-            if ("admin".equalsIgnoreCase(user.getUsername())) {
+            if ("ADMIN".equalsIgnoreCase(user.getUserType())) {
                 
                 AdminMenu adminMenu = new AdminMenu(scanner, busService); // Already correct
                 adminMenu.displayMenu();
